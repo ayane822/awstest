@@ -1,0 +1,25 @@
+
+{
+  "apple":{
+    "amount" : 5,
+    "price" : "$3"
+  },
+
+  "banana" :{
+    "amount": "8",
+    "price" : "$2"
+  },
+  "orange" :{
+    "amount": "10",
+    "price" : "$9"
+  },
+  "greap" :{
+    "amount": "1",
+    "price" : "$6"
+  },
+  "mango" :{
+    "amount": "1",
+    "price" : "$1"
+  }
+  
+}

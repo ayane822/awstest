@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Redis = require('redis');
+const res = require('express/lib/response');
 const app = express();
+const data = require("./data.json")
 
 const port = 5500;
 const redisClient = Redis.createClient();
@@ -19,17 +21,19 @@ app.get('/' , (req, res) => {
 });
 
 //step2 get "succdess" after i successfully logedin 
-app.post('/users' ,(req,res) =>{
- const loginBody = req.body;
- const userName = loginBody.userName;
- const password = loginBody.password;
-if (password==="candidate"){
-    //This happends if the password is correct
+app.get('/secret', (req,res) => {
     res.send("SUCCESS");
-}else
-    //This happends if the password is not correct
-    res.status(200); //unauthorized
-    res.send(["aws"]);
+});
+//post is when i have users to type thier information
+app.get('/datastore' ,(req,res) =>{
+ const loginBody = req.body;
+ console.log (data)
+ const name = req.query.name
+ const price = data[name].price
+ const amount = data[name].amount
+ //const password = loginBody.password;
+    res.send({price , amount})
+
 
 });
 
